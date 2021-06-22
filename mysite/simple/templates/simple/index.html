@@ -4,6 +4,11 @@
     </head>
     <body>
     Hello, {{ user.username }}
+    <br>
+    <br>
+    <a href = "{{ user.pk }}">Profile</a>
+    <br>
+    <br>
     <form action='logout/' method="POST">
         {% csrf_token %}
         <input type="submit" value="Logout"/>

@@ -51,6 +51,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+SESSION_ENGINE = 'mysite.sessiongenerator'
+#SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 TEMPLATES = [
     {
@@ -69,6 +71,8 @@ TEMPLATES = [
 ]
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
+SESSION_COOKIE_SAMESITE = None
+#SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
