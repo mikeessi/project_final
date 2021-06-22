@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+    Hello, {{ user.username }}
+    <form action='logout/' method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout"/>
+    </form>
+    </body>
+
+</html>
