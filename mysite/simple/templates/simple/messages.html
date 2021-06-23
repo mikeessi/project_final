@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Messages</title>
+    </head>
+    <body>
+        <h2>Your messages:</h2>
+
+        {% for msg in messages %}
+
+        <i>From {{ msg.sender.username }} to {{ msg.receiver.username }}</i>
+    </br>
+    {{ msg.content|safe}}
+    </br>
+    </br>
+    {% endfor %}
+    <a href = "/">Home</a>
+    </body>
+</html>

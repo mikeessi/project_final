@@ -6,9 +6,29 @@
     Hello, {{ user.username }}
     <br>
     <br>
-    <a href = "{{ user.pk }}">Profile</a>
+    <a href = "{{ user.pk }}">View messages</a>
     <br>
+    <h4>Search for messages to a user:</h4>
+    <form action='search/' method = 'POST'>
+        {% csrf_token %}
+        <input type= "text" name='query'><br>
+        <input type='submit' value='Search'/>
+    </form>
     <br>
+    <h4>Send a message</h4>
+
+        <form action='send/' method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            To:
+            <select name="to">
+            {% for user in users %}
+                <option value="{{user.username}}">{{user.username}}</option>
+            {% endfor %}
+            </select><br/>
+
+			<textarea name="content" cols="40" rows="5"></textarea><br/>
+            <input type="submit" value="Send"/>
+        </form>
     <form action='logout/' method="POST">
         {% csrf_token %}
         <input type="submit" value="Logout"/>
